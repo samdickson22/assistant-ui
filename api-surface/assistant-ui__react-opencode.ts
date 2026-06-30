@@ -929,7 +929,6 @@ type OpenCodeRuntimeExtras = {
   state: OpenCodeThreadState;
   permissions: OpenCodeThreadState["interactions"]["permissions"]["pending"];
   questions: OpenCodeThreadState["interactions"]["questions"]["pending"];
-  fork: (messageId: string) => Promise<string>;
   revert: (messageId: string) => Promise<void>;
   unrevert: () => Promise<void>;
   cancel: () => Promise<void>;
@@ -1082,7 +1081,6 @@ declare class OpenCodeThreadController implements OpenCodeThreadControllerLike {
   cancel(): Promise<void>;
   revert(messageId: string): Promise<void>;
   unrevert(): Promise<void>;
-  fork(messageId: string): Promise<string>;
   replyToPermission(permissionId: string, response: OpenCodePermissionResponse): Promise<void>;
   replyToQuestion(questionId: string, answers: readonly QuestionAnswer$1[]): Promise<void>;
   rejectQuestion(questionId: string): Promise<void>;
@@ -1102,7 +1100,6 @@ type OpenCodeThreadControllerLike = {
   cancel(): Promise<void>;
   revert(messageId: string): Promise<void>;
   unrevert(): Promise<void>;
-  fork(messageId: string): Promise<string>;
   replyToPermission(permissionId: string, response: OpenCodePermissionResponse): Promise<void>;
   replyToQuestion(questionId: string, answers: readonly QuestionAnswer[]): Promise<void>;
   rejectQuestion(questionId: string): Promise<void>;
